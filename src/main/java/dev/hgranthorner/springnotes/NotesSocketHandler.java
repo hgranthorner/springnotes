@@ -15,6 +15,13 @@ public class NotesSocketHandler implements WebSocketHandler {
 		this.json = json;
 	}
 
+	enum MessageType {
+		MessageType(final String text) {
+
+		}
+		GetNotes("getNotes")
+	}
+
 	@Override
 	public void afterConnectionEstablished(WebSocketSession session) throws Exception {
 		var notes = repo.findAll();
